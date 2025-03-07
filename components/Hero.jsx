@@ -113,7 +113,7 @@ const hero = () => {
           <video
             ref={nextVideoRef}
             src={getVideoSrc(currentIndex)}
-            loop
+            // loop
             muted
             id="next-video"
             className="invisible absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] z-20 size-64 object-cover object-center"
@@ -124,7 +124,7 @@ const hero = () => {
             src={getVideoSrc(
               currentIndex === totalVideos - 1 ? 1 : currentIndex
             )}
-            autoPlay
+            // autoPlay
             loop
             muted
             className="absolute left-0 top-0 size-full object-cover object-center"
@@ -154,7 +154,7 @@ const hero = () => {
             <Button
               id="watch-trailer"
               title="Watch Trailer"
-              leftIcon={<cTiLocationArrow />}
+              // leftIcon={<cTiLocationArrow />}
               containerClass="!bg-[#edff66] flex-center gap-1"
             />
           </div>
