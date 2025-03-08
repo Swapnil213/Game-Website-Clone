@@ -169,8 +169,18 @@ b{
 }
 
 .indicator-line {
-  @apply h-1 w-px rounded-full bg-white transition-all duration-200 ease-in-out;
+  /* @apply h-1 w-px rounded-full bg-white transition-all duration-200 ease-in-out; */
+  
+  border-radius: 50%;
+  background-color: #fff;
+  transition: all .2s ease-in-out;
 }
+
+.floating-nav {
+    background-color: black;
+    border-radius: 10px;
+    margin: 0 10px;
+  }
 
 .indicator-line.active {
   animation: indicator-line 0.5s ease infinite;

@@ -1,17 +1,61 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRef } from 'react';
 import Button from './Button';
-import { TiLocationArrow } from 'react-icons/ti';
+import gsap from 'gsap';
+import { useWindowScroll } from 'react-use';
+
 const navItems = ['Nexus', 'Vault', 'Prologue', 'About', 'Contact'];
 
-const Navbar = () => {
-    const [isAudioPlaying, setIsAudioPlaying] = useState(false);
-    const navContainerRef = useRef(null);
 
-    const audioElementRef = useRef(null);
-    const toggleAudioIndicator = () => {
-        
-    }
+const Navbar = () => {
+    // const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+    // const [isIndicatorActive, setisIndicatorActive] = useState(false);
+    const [lastScrollY, setLastScrollY] = useState(0);
+    const [isNavVisible, setIsNavVisible] = useState(false);
+
+    const navContainerRef = useRef(null);
+    // const audioElementRef = useRef(null);
+
+    const { y: currentScollY } = useWindowScroll();
+
+    useEffect(() => {
+        if (currentScollY === 0) {
+            setIsNavVisible(true);
+            navContainerRef.current.classList.remove('floating-nav');
+        }
+        else if (currentScollY > lastScrollY) {
+            setIsNavVisible(false);
+            navContainerRef.current.classList.add('floating-nav');
+        }
+        else if(currentScollY < lastScrollY) {
+            setIsNavVisible(true);
+            navContainerRef.current.classList.add('floating-nav');
+        }
+
+        setLastScrollY(currentScollY);
+    }, [currentScollY, lastScrollY]);
+
+
+    useEffect(() => {
+        gsap.to(navContainerRef.current, {
+            y: isNavVisible ? 0 : -100,
+            opacity: isNavVisible ? 1 : 0,
+            duration: 0.2,
+      })
+    }, [isNavVisible])
+    
+    // const toggleAudioIndicator = () => {
+    //     setIsAudioPlaying((prev) => !prev);
+    //     setisIndicatorActive((prev) => !prev);
+    // }
+
+    // useEffect(() => {
+    //     if (isAudioPlaying) {
+    //         audioElementRef.current.play();
+    //     } else {
+    //         audioElementRef.current.pause();
+    //     }
+    // }, [isAudioPlaying]);
 
     return (
         <div
@@ -21,7 +65,9 @@ const Navbar = () => {
                 <nav className='flex size-full items-center justify-between p-4'>
                     <div className='flex items-center gap-7'>
                         <img src="/img/logo.png" alt="logo" className='w-10' />
-                        <Button id="product-button" title="Products" rightIcon={TiLocationArrow} containerClass="bg-blue-50 md:flex hidden items-center justify-center gap-1" />
+                        <Button id="product-button" title="Products"
+                            // rightIcon={TiLocationArrow}
+                            containerClass="bg-blue-50 md:flex hidden items-center justify-center gap-1" />
                     </div>
                     <div className='flex h-full items-center'>
                         <div className='hidden md:block'>
@@ -32,14 +78,12 @@ const Navbar = () => {
                             ))}
                         </div>
 
-                        <button onClick={toggleAudioIndicator} className='ml-10 flex items-center space-x-0.5 '>
-                            <audio ref={audioElementRef} className='hidden' src='/audio/loop.mp3' loop>
-                                {[1, 2, 3, 4].map((bar) => {
-                                    <div key={bar} className={`indicator-line`}>
-                                    </div>
+                        {/* <button onClick={toggleAudioIndicator} className='ml-10 flex items-center space-x-0.5 '>
+                            <audio ref={audioElementRef} className='hidden' src='/audio/loop.mp3' loop/>
+                            {[1, 2, 3, 4].map((bar) => {
+                                <div key={bar} className={`h-1 w-px rounded-full bg-white transition-all duration-200 ease-in-out ${isIndicatorActive ? 'active' : ''}`} style={{ animationDelay: `${bar * 0.1}s` }} />
                             })}
-                            </audio>
-                    </button>
+                    </button> */}
                     </div>
                 </nav>
             </header>

@@ -28,10 +28,10 @@ const about = () => {
 
     const titleAnimation = gsap.timeline({
       scrollTrigger: {
-        trigger: ".animated-word",
-        start: '100 bottom',
+        trigger: "#about",
+        start: '120 bottom',
         end: 'center bottom',
-        toggleActions: 'play none none reverse'
+        toggleActions: 'play none none reverse',
       }
     });
 
@@ -59,7 +59,13 @@ const about = () => {
         
         <div className="mt-5 !text-black text-center flex flex-col gap-1 text-7xl uppercase leading-[.8] text-white sm:px-32 md:text-[6rem]">
           <div className="flex justify-center items-center max-w-full flex-wrap gap-2 px-10 md:gap-3">
-            <p className="animated-word">Disc<b>o</b>ver the world's <br /> l<b>a</b>rgest shared adventure</p>
+            <div className="animated-word">Disc<b>o</b>ver</div>
+            <div className="animated-word">the</div>
+            <div className="animated-word">world's</div>
+            <div className="animated-word">l<b>a</b>rgest</div>
+            <div className="animated-word">shared</div>
+            <div className="animated-word">adventure</div>
+            {/* <p className="animated-word">Disc<b>o</b>ver the world's <br /> l<b>a</b>rgest shared adventure</p> */}
           </div>
         </div>
 

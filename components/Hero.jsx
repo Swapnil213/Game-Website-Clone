@@ -134,7 +134,7 @@ const hero = () => {
 
         <h1
           id="zentry"
-          className="uppercase font-black text-5xl sm:right-10 sm:text-7xl md:text-9xl lg:text-[12rem] absolute bottom-5 right-5 z-[50] text-[#dfdff2]"
+          className="uppercase font-black text-5xl sm:right-10 sm:text-7xl md:text-9xl lg:text-[12rem] absolute bottom-5 right-5 z-40 text-[#dfdff2]"
         >
           G<b>a</b>ming
         </h1>
@@ -163,7 +163,7 @@ const hero = () => {
 
       <h1
         id="zentry"
-        className="uppercase font-black text-5xl sm:right-10 sm:text-7xl md:text-9xl lg:text-[12rem] absolute bottom-5 right-5 z-[40] text-black"
+        className="uppercase font-black text-5xl sm:right-10 sm:text-7xl md:text-9xl lg:text-[12rem] absolute bottom-5 right-5 z-20 text-black"
       >
         G<b>a</b>ming
       </h1>
