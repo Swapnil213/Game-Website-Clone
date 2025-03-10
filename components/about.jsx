@@ -57,7 +57,7 @@ const about = () => {
           containerClass="mt-5 !text-black text-center"
         /> */}
         
-        <div className="mt-5 !text-black text-center flex flex-col gap-1 text-7xl uppercase leading-[.8] text-white sm:px-32 md:text-[6rem]">
+        <div className="mt-5 text-center flex flex-col gap-1 text-7xl uppercase leading-[.8] text-white sm:px-32 md:text-[6rem]">
           <div className="flex justify-center items-center max-w-full flex-wrap gap-2 px-10 md:gap-3">
             <div className="animated-word">Disc<b>o</b>ver</div>
             <div className="animated-word">the</div>
@@ -65,7 +65,6 @@ const about = () => {
             <div className="animated-word">l<b>a</b>rgest</div>
             <div className="animated-word">shared</div>
             <div className="animated-word">adventure</div>
-            {/* <p className="animated-word">Disc<b>o</b>ver the world's <br /> l<b>a</b>rgest shared adventure</p> */}
           </div>
         </div>
 
