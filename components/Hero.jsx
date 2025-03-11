@@ -3,6 +3,7 @@ import Button from "./Button";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import { FaLocationArrow } from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -113,7 +114,7 @@ const hero = () => {
           <video
             ref={nextVideoRef}
             src={getVideoSrc(currentIndex)}
-            // loop
+            loop
             muted
             id="next-video"
             className="invisible absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] z-20 size-64 object-cover object-center"
@@ -124,7 +125,7 @@ const hero = () => {
             src={getVideoSrc(
               currentIndex === totalVideos - 1 ? 1 : currentIndex
             )}
-            // autoPlay
+            autoPlay
             loop
             muted
             className="absolute left-0 top-0 size-full object-cover object-center"
@@ -134,7 +135,7 @@ const hero = () => {
 
         <h1
           id="zentry"
-          className="uppercase font-black text-5xl sm:right-10 sm:text-7xl md:text-9xl lg:text-[12rem] absolute bottom-5 right-5 z-40 text-[#dfdff2]"
+          className="uppercase text-5xl sm:right-10 sm:text-7xl md:text-9xl lg:text-[12rem] absolute bottom-5 right-5 z-50 text-white"
         >
           G<b>a</b>ming
         </h1>
@@ -154,7 +155,7 @@ const hero = () => {
             <Button
               id="watch-trailer"
               title="Watch Trailer"
-              // leftIcon={<cTiLocationArrow />}
+              leftIcon={<FaLocationArrow />}
               containerClass="!bg-[#edff66] flex-center gap-1"
             />
           </div>
@@ -163,7 +164,7 @@ const hero = () => {
 
       <h1
         id="zentry"
-        className="uppercase font-black text-5xl sm:right-10 sm:text-7xl md:text-9xl lg:text-[12rem] absolute bottom-5 right-5 z-20 text-black"
+        className="uppercase text-5xl sm:right-10 sm:text-7xl md:text-9xl lg:text-[12rem] absolute bottom-5 right-5 z-20 text-black"
       >
         G<b>a</b>ming
       </h1>

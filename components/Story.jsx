@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
-import AnimatedTitle from "./AnimatedTitle";
+// import AnimatedTitle from "./AnimatedTitle";
 import gsap from "gsap";
+import Button from "./Button";
 
 
 const Story = () => {
@@ -44,29 +45,40 @@ const Story = () => {
 
     return (
         <section id='story' className='min-h-dvh w-screen bg-black text-blue-50'>
-            <div className='flex size-full flex-col items-center py-10 pb-24 '>
-                <p className='text-sm uppercase md:text-[10px]'>Multiversal ip World</p>
+            <div className='flex size-full flex-col items-center py-10 pb-24'>
+                <p id="general" className='text-sm uppercase md:text-[10px]'>Multiversal ip World</p>
                 <div className='relative size-full'>
                     <div className="mt-5  text-center flex flex-col gap-1 text-7xl uppercase leading-[.8] text-white sm:px-32 md:text-[6rem] pointer-events-none mix-blend-difference relative z-10">
                         <div className="flex justify-center items-center max-w-full flex-nowrap gap-2 px-10 md:gap-3">
                             <div className="animated-word1">The St<b>o</b>ry of <br /> a Hidden Real<b>m</b></div>
                         </div>
                     </div>
+
+                    <div className="story-img-container relative md:h-dvh h-[90vh] w-full">
+                        <div className="story-img-mask absolute left-0 top-0 size-full overflow-hidden md:left-[20%] md:top-[-10%] md:size-4/5">
+                            <div className="story-img-content absolute w-full md:h-dvh h-[50dvh] opacity-100 left-10 top-16 md:left-0 md:top-10 lg:left-[-300px] lg:top-[-100px]">
+                                <img
+                                    ref={frameRef}
+                                    onMouseEnter={handleMouseLeave}
+                                    onMouseLeave={handleMouseLeave}
+                                    onMouseUp={handleMouseLeave}
+                                    onMouseMove={handleMouseMove}
+                                    src="/img/entrance.webp"
+                                    alt="entrance"
+                                    className="object-contain" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div className="story-img-container relative md:h-dvh h-[90vh] w-full">
-                    <div className="story-img-mask absolute left-0 top-0 size-full overflow-hidden md:left-[20%] md:top-[-10%] md:size-4/5">
-                        <div className="story-img-content absolute w-full md:h-dvh h-[50dvh] opacity-100 left-10 top-16 md:left-0 md:top-10 lg:left-[-300px] lg:top-[-100px]">
-                            <img
-                                ref={frameRef}
-                                onMouseEnter={handleMouseLeave}
-                                onMouseLeave={handleMouseLeave}
-                                onMouseUp={handleMouseLeave}
-                                onMouseMove={handleMouseMove}
-                                src="/img/entrance.webp"
-                                alt="entrance"
-                                className="object-contain" />
-                        </div>
+                <div className="-mt-80 flex w-full justify-center md:-mt-64 md:me-44 md:justify-end">
+                    <div className="flex w-fit h-full flex-col items-center md:items-start">
+                        <p id="circular" className="mt-3 max-w-sm text-center text-violet-50 md:text-start">where realms converge, lies Zentry and the boundless pillar. Discover its secrets and shape your fate amidst infinite opportunities.</p>
+                        <Button
+                            id="realm-button"
+                            title="Discover Prologue"
+                            containerClass="mt-5"
+                        />
                     </div>
                 </div>
             </div>
